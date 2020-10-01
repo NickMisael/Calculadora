@@ -55,8 +55,9 @@ func main() {
 
 	btn := widget.NewButton("calcular", func() {
 		str := ent1.Text
-		if str == "" {
-			panic("Error")
+		if str == "" || len(str) < 3 {
+			//pop := widget.NewPopUp(fyne.NewContainerWithLayout(layout.NewCenterLayout(), canvas.NewText("Error: Number of character invalid!", color.Black)), fyne.)
+			//pop.Show()
 		}
 		n1, err := strconv.ParseFloat(str, 64)
 		if err != nil {
@@ -71,7 +72,66 @@ func main() {
 			panic(er)
 		}
 		soma := n1 + n2
+
+		str3 := ent3.Text
+		if str3 == "" {
+			panic("Error")
+		}
+		n1, er = strconv.ParseFloat(str3, 64)
+		if er != nil {
+			panic(er)
+		}
+		str4 := ent4.Text
+		if str4 == "" {
+			panic("Error")
+		}
+		n2, er = strconv.ParseFloat(str4, 64)
+		if er != nil {
+			panic(er)
+		}
+		sub := n1 - n2
+
+		str5 := ent5.Text
+		if str5 == "" {
+			panic("Error")
+		}
+		n1, er = strconv.ParseFloat(str5, 64)
+		if er != nil {
+			panic(er)
+		}
+		str6 := ent6.Text
+		if str6 == "" {
+			panic("Error")
+		}
+		n2, er = strconv.ParseFloat(str6, 64)
+		if er != nil {
+			panic(er)
+		}
+		mult := n1 * n2
+
+		str7 := ent7.Text
+		if str7 == "" {
+			panic("Error")
+		}
+		n1, er = strconv.ParseFloat(str7, 64)
+		if er != nil {
+			panic(er)
+		}
+		str8 := ent8.Text
+		if str8 == "" {
+			panic("Error")
+		}
+		n2, er = strconv.ParseFloat(str8, 64)
+		if er != nil {
+			panic(er)
+		}
+		div := n1 / n2
+
 		resul1.SetText(resul1.Text + fmt.Sprint(soma))
+		resul2.SetText(resul2.Text + fmt.Sprint(sub))
+		resul3.SetText(resul3.Text + fmt.Sprint(mult))
+		resul4.SetText(resul4.Text + fmt.Sprint(div))
+
 	})
 	btn.Alignment = widget.ButtonAlignCenter
 	//btnsum.Resize(fyne.NewSize(15, 4))
