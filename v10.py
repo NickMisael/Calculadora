@@ -34,12 +34,12 @@ def PressButton():
             ResultBox['text'] = ResultBox['text'] + str(resul)
         if status1.get() == 7:
             if n2 == 0:
-                messagebox.showinfo("Error", "Error 02: indivisivel por zero!")
+                messagebox.showinfo("ERROR", "ERROR 02: INDIVISÍVEL POR ZERO!")
             else:   
                 resul = n1 / n2
                 ResultBox['text'] = ResultBox['text'] + str(resul)
     except:
-        messagebox.showinfo("Error", "Error 01: Entrada invalida!")
+        messagebox.showinfo("ERROR", "ERROR 01: ENTRADA INVÁLIDA!")
     TextBox1.delete(0, END)
     TextBox2.delete(0, END)
     
@@ -62,55 +62,55 @@ lenR = len(splR)
 def labSum():
     label1['text'] = '+'
     label1['font'] = 'Arial 12'
-    ResultBox['text'] = 'A soma eh: '
+    ResultBox['text'] = 'A SOMA É -> '
     splR  = ResultBox['text'].split()
     lenR = len(splR)
 
 def labDif():
     label1['text'] = '-'
     label1['font'] = 'Arial 18'
-    ResultBox['text'] = 'A diferenca eh: '
+    ResultBox['text'] = 'A DIFERENÇA É -> '
     splR  = ResultBox['text'].split()
     lenR = len(splR)
 
 def labProd():
     label1['text'] = '*'
     label1['font'] = 'Arial 15'
-    ResultBox['text'] = 'O produto eh: '
+    ResultBox['text'] = 'O PRODUTO É -> '
     splR  = ResultBox['text'].split()
     lenR = len(splR)
 
 def labQuo():
     label1['text'] = '/'
     label1['font'] = 'Arial 15'
-    ResultBox['text'] = 'O quociente eh: '
+    ResultBox['text'] = 'O QUOCIENTE É -> '
     splR  = ResultBox['text'].split()
     lenR = len(splR)
 
-CheckBox1 = Checkbutton(janela, text='Adicao', variable=status1, onvalue=1, offvalue=0, selectcolor = '#008080' , bg = '#4B0082', fg = 'white', command = labSum)
+CheckBox1 = Checkbutton(janela, text='ADIÇÃO', variable=status1, onvalue=1, offvalue=0, selectcolor = '#008080' , bg = '#4B0082', fg = 'white', command = labSum)
 CheckBox1.select()
 CheckBox1.pack()
 CheckBox1.place(x=25,y=25)
 
-CheckBox2 = Checkbutton(janela, text='Subtracao', variable=status1, onvalue=3, offvalue=2, selectcolor = '#008080' , bg = '#4B0082', fg = 'white', command = labDif)
+CheckBox2 = Checkbutton(janela, text='SUBTRAÇÃO', variable=status1, onvalue=3, offvalue=2, selectcolor = '#008080' , bg = '#4B0082', fg = 'white', command = labDif)
 CheckBox2.pack()
 CheckBox2.place(x=90,y=25)
 
-CheckBox3 = Checkbutton(janela, text='Multiplicacao', variable=status1, onvalue=5, offvalue=4, selectcolor = '#008080' , bg = '#4B0082', fg = 'white', command = labProd)
+CheckBox3 = Checkbutton(janela, text='MULTIPLICAÇÃO', variable=status1, onvalue=5, offvalue=4, selectcolor = '#008080' , bg = '#4B0082', fg = 'white', command = labProd)
 CheckBox3.pack()
 CheckBox3.place(x=173,y=25)
 
-CheckBox4 = Checkbutton(janela, text='Divisao', variable=status1, onvalue=7, offvalue=6, selectcolor = '#008080' , bg = '#4B0082', fg = 'white', command = labQuo)
+CheckBox4 = Checkbutton(janela, text='DIVISÃO', variable=status1, onvalue=7, offvalue=6, selectcolor = '#008080' , bg = '#4B0082', fg = 'white', command = labQuo)
 CheckBox4.pack()
 CheckBox4.place(x=273,y=25)
 
-btn = Button(janela, width = 25, text = 'Calcular', command = PressButton, background = 'blue', fg = 'white')
+btn = Button(janela, width = 25, text = 'CALCULAR', command = PressButton, background = 'blue', fg = 'white')
 btn.place(x=75,y=165)
 
-btnLimpa = Button(janela, width = 15, text = 'Limpar', command = LimpaCaixa, background = 'green', fg = 'white')
+btnLimpa = Button(janela, width = 15, text = 'LIMPAR', command = LimpaCaixa, background = 'green', fg = 'white')
 btnLimpa.place(x=10,y=225)
 
-btnFecha = Button(janela, width = 15, text = 'Fechar', command = FechaJanela, background = 'red', fg = 'white')
+btnFecha = Button(janela, width = 15, text = 'FECHAR', command = FechaJanela, background = 'red', fg = 'white')
 btnFecha.place(x=215,y=225)
 
 janela.geometry('360x280+250+100')
