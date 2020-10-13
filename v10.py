@@ -55,35 +55,35 @@ TextBox2.place(x=192,y=65)
 status1 = IntVar()
 label1 = Label(janela, text='+', font = 'Arial 12', bg = '#4B0082', fg = 'white')
 label1.place(x=173,y=66)
-ResultBox = Label(janela, text='A soma eh: ', font = 'Arial 12', bg = '#4B0082', fg = 'white') 
+ResultBox = Label(janela, text='A SOMA É -> ', font = 'Arial 12', bg = '#4B0082', fg = 'white') 
 ResultBox.place(x=22,y=125)
 splR  = ResultBox['text'].split()
 lenR = len(splR)
 def labSum():
     label1['text'] = '+'
     label1['font'] = 'Arial 12'
-    ResultBox['text'] = 'A SOMA É -> '
+    ResultBox['text'] = 'A Soma é -> '
     splR  = ResultBox['text'].split()
     lenR = len(splR)
 
 def labDif():
     label1['text'] = '-'
     label1['font'] = 'Arial 18'
-    ResultBox['text'] = 'A DIFERENÇA É -> '
+    ResultBox['text'] = 'A Diferença é -> '
     splR  = ResultBox['text'].split()
     lenR = len(splR)
 
 def labProd():
     label1['text'] = '*'
     label1['font'] = 'Arial 15'
-    ResultBox['text'] = 'O PRODUTO É -> '
+    ResultBox['text'] = 'O Produto é -> '
     splR  = ResultBox['text'].split()
     lenR = len(splR)
 
 def labQuo():
     label1['text'] = '/'
     label1['font'] = 'Arial 15'
-    ResultBox['text'] = 'O QUOCIENTE É -> '
+    ResultBox['text'] = 'O Quociente é -> '
     splR  = ResultBox['text'].split()
     lenR = len(splR)
 
