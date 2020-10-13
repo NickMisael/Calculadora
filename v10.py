@@ -87,20 +87,20 @@ def labQuo():
     splR  = ResultBox['text'].split()
     lenR = len(splR)
 
-CheckBox1 = Checkbutton(janela, text='ADIÇÃO', variable=status1, onvalue=1, offvalue=0, selectcolor = '#008080' , bg = '#4B0082', fg = 'white', command = labSum)
+CheckBox1 = Checkbutton(janela, text='Adição', variable=status1, onvalue=1, offvalue=0, selectcolor = '#008080' , bg = '#4B0082', fg = 'white', command = labSum)
 CheckBox1.select()
 CheckBox1.pack()
 CheckBox1.place(x=25,y=25)
 
-CheckBox2 = Checkbutton(janela, text='SUBTRAÇÃO', variable=status1, onvalue=3, offvalue=2, selectcolor = '#008080' , bg = '#4B0082', fg = 'white', command = labDif)
+CheckBox2 = Checkbutton(janela, text='Subtração', variable=status1, onvalue=3, offvalue=2, selectcolor = '#008080' , bg = '#4B0082', fg = 'white', command = labDif)
 CheckBox2.pack()
 CheckBox2.place(x=90,y=25)
 
-CheckBox3 = Checkbutton(janela, text='MULTIPLICAÇÃO', variable=status1, onvalue=5, offvalue=4, selectcolor = '#008080' , bg = '#4B0082', fg = 'white', command = labProd)
+CheckBox3 = Checkbutton(janela, text='Multiplicação', variable=status1, onvalue=5, offvalue=4, selectcolor = '#008080' , bg = '#4B0082', fg = 'white', command = labProd)
 CheckBox3.pack()
 CheckBox3.place(x=173,y=25)
 
-CheckBox4 = Checkbutton(janela, text='DIVISÃO', variable=status1, onvalue=7, offvalue=6, selectcolor = '#008080' , bg = '#4B0082', fg = 'white', command = labQuo)
+CheckBox4 = Checkbutton(janela, text='Divisão', variable=status1, onvalue=7, offvalue=6, selectcolor = '#008080' , bg = '#4B0082', fg = 'white', command = labQuo)
 CheckBox4.pack()
 CheckBox4.place(x=273,y=25)
 
