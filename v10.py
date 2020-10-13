@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import *
+from tkinter import messagebox
 
 def limpaLabel(string, tam):
     nstring = ""
@@ -8,94 +9,93 @@ def limpaLabel(string, tam):
     while i < tam:
         nstring += letter[i] + " "
         i += 1
-    return nstring        
+    return nstring         
     
 
 def PressButton():
-    soma['text'] = limpaLabel(soma['text'],lenS)
-    dif['text'] = limpaLabel(dif['text'],lenD)  
-    prod['text'] = limpaLabel(prod['text'],lenP)
-    quoc['text'] = limpaLabel(quoc['text'],lenQ) 
+    ResultBox['text'] = limpaLabel(ResultBox['text'],lenR)
     try:
         n1 = float(TextBox1.get())
         n2 = float(TextBox2.get())
-        n3 = float(TextBox3.get())
-        n4 = float(TextBox4.get())
-        n5 = float(TextBox5.get())
-        n6 = float(TextBox6.get())
-        n7 = float(TextBox7.get())
-        n8 = float(TextBox8.get())
-        
-        resul = n1 + n2
-        soma['text'] = soma['text'] + str(resul)
-        resul = n3 - n4
-        dif['text'] = dif['text'] + str(resul)
-        resul = n5 * n6
-        prod['text'] = prod['text'] + str(resul)
-        resul = n7 / n8
-        quoc['text'] = quoc['text'] + str(resul)
+        if status1.get() == 1:
+            resul = n1 + n2
+            ResultBox['text'] = ResultBox['text'] + str(resul)
+        if status1.get() == 3:
+            resul = n1 - n2
+            ResultBox['text'] = ResultBox['text'] + str(resul)
+        if status1.get() == 5:
+            resul = n1 * n2
+            ResultBox['text'] = ResultBox['text'] + str(resul)
+        if status1.get() == 7:
+            if n2 == 0:
+                messagebox.showinfo("Error", "Error 02: indivisivel por zero!")
+            else:   
+                resul = n1 / n2
+                ResultBox['text'] = ResultBox['text'] + str(resul)
     except:
-        errorMsg = Label(janela, text='Error: Entrada invalida!', font = 'Arial 12')
-        errorMsg.place(x=215,y=400)
-    TextBox1.delete(0,last = None)
-    TextBox2.delete(0,last = None)
-    TextBox3.delete(0,last = None)
-    TextBox4.delete(0,last = None)
-    TextBox5.delete(0,last = None)
-    TextBox6.delete(0,last = None)
-    TextBox7.delete(0,last = None)
-    TextBox8.delete(0,last = None)
+        messagebox.showinfo("Error", "Error 01: Entrada invalida!")
+    TextBox1.delete(0, END)
+    TextBox2.delete(0, END)
+    
     
 janela = Tk()
-janela.title = 'Calculadora v1.0'
+janela.title('Calculadora v1.1')
 
 TextBox1 = Entry(janela, background = 'gray' ,width = 10, font = 'Arial18')
 TextBox1.place(x=210,y=100)
-label1 = Label(janela, text='+', font = 'Arial 12')
-label1.place(x=320,y=100)
 TextBox2 = Entry(janela, background = 'gray' ,width = 10, font = 'Arial18')
 TextBox2.place(x=337,y=100)
-TextBox3 = Entry(janela, background = 'gray' ,width = 10, font = 'Arial18')
-TextBox3.place(x=210,y=150)
-label2 = Label(janela, text='-', font = 'Arial 12')
-label2.place(x=320,y=150)
-TextBox4 = Entry(janela, background = 'gray' ,width = 10, font = 'Arial18')
-TextBox4.place(x=337,y=150)
-TextBox5 = Entry(janela, background = 'gray' ,width = 10, font = 'Arial18')
-TextBox5.place(x=210,y=200)
-label3 = Label(janela, text='*', font = 'Arial 12')
-label3.place(x=320,y=200)
-TextBox6 = Entry(janela, background = 'gray' ,width = 10, font = 'Arial18')
-TextBox6.place(x=337,y=200)
-TextBox7 = Entry(janela, background = 'gray' ,width = 10, font = 'Arial18')
-TextBox7.place(x=210,y=250)
-label4 = Label(janela, text='/', font = 'Arial 12')
-label4.place(x=320,y=250)
-TextBox8 = Entry(janela, background = 'gray' ,width = 10, font = 'Arial18')
-TextBox8.place(x=337,y=250)
 
-soma = Label(janela, text='A soma eh: ', font = 'Arial 12') 
-soma.place(x=215,y=300)
-splS  = soma['text'].split()
-lenS = len(splS)
+status1 = IntVar()
+label1 = Label(janela, text='+', font = 'Arial 12')
+label1.place(x=318,y=100)
+ResultBox = Label(janela, text='A soma eh: ', font = 'Arial 12') 
+ResultBox.place(x=212,y=150)
+splR  = ResultBox['text'].split()
+lenR = len(splR)
+def labSum():
+    label1['text'] = '+'
+    ResultBox['text'] = 'A soma eh: '
+    splR  = ResultBox['text'].split()
+    lenR = len(splR)
 
-dif = Label(janela, text='A diferenca eh: ', font = 'Arial 12') 
-dif.place(x=215,y=320)
-splD = dif['text'].split()
-lenD = len(splD)
+def labDif():
+    label1['text'] = '-'
+    ResultBox['text'] = 'A diferenca eh: '
+    splR  = ResultBox['text'].split()
+    lenR = len(splR)
 
-prod = Label(janela, text='O produto eh: ', font = 'Arial 12') 
-prod.place(x=215,y=340)
-splP = prod['text'].split()
-lenP = len(splP)
+def labProd():
+    label1['text'] = '*'
+    ResultBox['text'] = 'O produto eh: '
+    splR  = ResultBox['text'].split()
+    lenR = len(splR)
 
-quoc = Label(janela, text='O quociente eh: ', font = 'Arial 12') 
-quoc.place(x=215,y=360)
-splQ = quoc['text'].split()
-lenQ = len(splQ)
+def labQuo():
+    label1['text'] = '/'
+    ResultBox['text'] = 'O quociente eh: '
+    splR  = ResultBox['text'].split()
+    lenR = len(splR)
+
+CheckBox1 = Checkbutton(janela, text='Adicao', variable=status1, onvalue=1, offvalue=0, command = labSum)
+CheckBox1.select()
+CheckBox1.pack()
+CheckBox1.place(x=210,y=75)
+
+CheckBox2 = Checkbutton(janela, text='Subtracao', variable=status1, onvalue=3, offvalue=2, command = labDif)
+CheckBox2.pack()
+CheckBox2.place(x=275,y=75)
+
+CheckBox3 = Checkbutton(janela, text='Multiplicacao', variable=status1, onvalue=5, offvalue=4, command = labProd)
+CheckBox3.pack()
+CheckBox3.place(x=355,y=75)
+
+CheckBox4 = Checkbutton(janela, text='Divisao', variable=status1, onvalue=7, offvalue=6, command = labQuo)
+CheckBox4.pack()
+CheckBox4.place(x=450,y=75)
 
 btn = Button(janela, width = 25, text = 'Calcular', command = PressButton, background = 'blue')
-btn.place(x=205,y=385)
+btn.place(x=205,y=175)
 
 janela.geometry('640x480+250+100')
 janela.mainloop()
